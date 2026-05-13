@@ -10,6 +10,6 @@ const interval = setInterval(()=>{
         console.log("Interval cancelado...");
         clearInterval(interval);
     }
-}, 700);
+}, 1000);
 console.log("Depois do interval...");
 
