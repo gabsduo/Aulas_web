@@ -28,7 +28,6 @@ app.post("/produtos", (req: Request, res: Response): void => {
 			)
 		}
 
-		// valida ID duplicado
 		const produtoExistente = produtos.find(
 			p => p.id === data.id
 		)
@@ -37,17 +36,14 @@ app.post("/produtos", (req: Request, res: Response): void => {
 			throw new Error("ID ja cadastrado")
 		}
 
-		// valida preco
 		if (data.preco <= 0) {
 			throw new Error("Preco deve ser maior que zero")
 		}
 
-		// valida fabricante
 		if (!data.fabricante.nome) {
 			throw new Error("Fabricante requer nome")
 		}
 
-		// valida endereco
 		if (
 			!data.fabricante.endereco.cidade ||
 			!data.fabricante.endereco.pais
@@ -243,7 +239,6 @@ app.delete("/produtos/:id", (req: Request, res: Response): void => {
 })
 
 
-// servidor
 app.listen(3000, () => {
 	console.log("Servidor rodando na porta 3000")
 })
